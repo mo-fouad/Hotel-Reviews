@@ -7,13 +7,14 @@
 header {
   position: fixed;
   width: 100%;
-  padding: 50px;
+  padding: 30px;
   text-align: center;
   background: aliceblue;
   left: 0;
   top: 0;
+  z-index: 100;
   h2 {
-
+    font-size: 34px;
   }
 }
 

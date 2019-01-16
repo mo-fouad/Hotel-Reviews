@@ -6,6 +6,7 @@ class reviews {
 
         reviews.forEach(review => {
             const reviewEle = document.createElement('div');
+            reviewEle.className= "reviews-item";
             reviewEle.innerHTML = `
              <span>${review.score}</span>
              <p>${review.review}</p>

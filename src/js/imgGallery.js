@@ -7,14 +7,20 @@ class imgGallery {
         let imgCont = document.getElementById('imgGallery');
 
         // Create Big img
+        let bigImgCont = document.createElement('div');
+        bigImgCont.classList.add('gallery-img');
+
         let bigImg = document.createElement('img');
         bigImg.id = 'bigImg';
         bigImg.src = pictures[0].photo;
-        imgCont.appendChild(bigImg);
+        bigImgCont.appendChild(bigImg);
+        imgCont.appendChild(bigImgCont);
 
         // create images for thumbs
         let thumbsBar = document.createElement('div');
         thumbsBar.id = 'thumbsBar';
+        thumbsBar.className = 'gallery-bar';
+
 
         for (let thumb = 0; thumb < pictures.length; thumb++) {
             let Img = document.createElement('img');
@@ -34,8 +40,7 @@ class imgGallery {
         let imgSrc = pictures.find(el => {
             return el.thumbnail === thumSrc
         }).photo;
-
-        console.log(imgSrc);
+        bigImg.src = "";
         bigImg.src = imgSrc;
     }
 

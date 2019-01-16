@@ -65,13 +65,17 @@ function () {
       var bigImgs = [];
       var imgCont = document.getElementById('imgGallery'); // Create Big img
 
+      var bigImgCont = document.createElement('div');
+      bigImgCont.classList.add('gallery-img');
       var bigImg = document.createElement('img');
       bigImg.id = 'bigImg';
       bigImg.src = pictures[0].photo;
-      imgCont.appendChild(bigImg); // create images for thumbs
+      bigImgCont.appendChild(bigImg);
+      imgCont.appendChild(bigImgCont); // create images for thumbs
 
       var thumbsBar = document.createElement('div');
       thumbsBar.id = 'thumbsBar';
+      thumbsBar.className = 'gallery-bar';
 
       for (var thumb = 0; thumb < pictures.length; thumb++) {
         var Img = document.createElement('img');
@@ -91,7 +95,7 @@ function () {
       var imgSrc = pictures.find(function (el) {
         return el.thumbnail === thumSrc;
       }).photo;
-      console.log(imgSrc);
+      bigImg.src = "";
       bigImg.src = imgSrc;
     } // todo : Make animation fadding image in & out;
     // todo : Adjust the bar for thumbs
@@ -149,7 +153,7 @@ function () {
         var hoteltag = document.createElement('div');
         hoteltag.classList.add('hotels-card');
         hoteltag.classList.add('col');
-        hoteltag.innerHTML = "\n                <h1 class=\"hotels-card-name\">".concat(hotel.name, "</h1>\n                <p class=\"hotels-card-review\">").concat(hotel.totalReviews, "</p>\n                <p class=\"hotels-card-score\">").concat(hotel.totalScore, "</p>\n                <p class=\"hotels-card-price\">").concat(hotel.pricePerNight, "</p>\n                <span class=\"hotels-card-more\" data-id=\"").concat(hotel.id, "\" class=\"viewHotel\" onclick=\"myUI.getHotelID(event)\">View Details</span>\n                <img class=\"hotels-card-img\" src=\"").concat(hotel.photo, "\" alt=\"").concat(hotel.name, "\">\n            ");
+        hoteltag.innerHTML = "\n                <h1 class=\"hotels-card-name\">".concat(hotel.name, "</h1>\n                <p class=\"hotels-card-review\">").concat(hotel.totalReviews, "</p>\n                <p class=\"hotels-card-score\">").concat(hotel.totalScore, "<sup>/10</sup></p>\n                <p class=\"hotels-card-price\">").concat(hotel.pricePerNight, "<sup>/$$</sup></p>\n                <span class=\"hotels-card-more\" data-id=\"").concat(hotel.id, "\" class=\"viewHotel\" onclick=\"myUI.getHotelID(event)\">View Details</span>\n                <img class=\"hotels-card-img\" src=\"").concat(hotel.photo, "\" alt=\"").concat(hotel.name, "\">\n            ");
         hotelContainer.append(hoteltag);
       });
     }
@@ -225,6 +229,7 @@ function () {
       console.log(reviews);
       reviews.forEach(function (review) {
         var reviewEle = document.createElement('div');
+        reviewEle.className = "reviews-item";
         reviewEle.innerHTML = "\n             <span>".concat(review.score, "</span>\n             <p>").concat(review.review, "</p>\n            ");
         ReviewsCont.append(reviewEle);
       });

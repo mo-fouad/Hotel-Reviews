@@ -37,8 +37,8 @@ class myUI {
             hoteltag.innerHTML = `
                 <h1 class="hotels-card-name">${hotel.name}</h1>
                 <p class="hotels-card-review">${hotel.totalReviews}</p>
-                <p class="hotels-card-score">${hotel.totalScore}</p>
-                <p class="hotels-card-price">${hotel.pricePerNight}</p>
+                <p class="hotels-card-score">${hotel.totalScore}<sup>/10</sup></p>
+                <p class="hotels-card-price">${hotel.pricePerNight}<sup>/$$</sup></p>
                 <span class="hotels-card-more" data-id="${hotel.id}" class="viewHotel" onclick="myUI.getHotelID(event)">View Details</span>
                 <img class="hotels-card-img" src="${hotel.photo}" alt="${hotel.name}">
             `;

@@ -4,17 +4,19 @@
   }
 
   &-card {
-    height: 100px;
+    height: 102px;
     position: relative;
     margin: 15px;
     padding-left: 120px;
     border: 1px solid #000;
     border-top-left-radius: 25px;
     border-bottom-right-radius: 25px;
+    transition: all 200ms ease-out;
 
     $c: &;
 
     &:hover {
+      background: #f1f8ff;
       #{$c}-img {
         transition: all 200ms ease-out;
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
@@ -38,25 +40,41 @@
     }
 
 
+    &-review, &-score, &-price {
+      margin: 5px 0;
+      &:before {
+        font-family: "Font Awesome 5 Free";
+        margin-right: 10px;
+        color: #ff0000;
+      }
+      sup {
+        font-size: 11px;
+      }
+    }
+
     &-review {
-      &:before{
+      &:before {
         content: '\f4ad';
-        font-family:'font-awesome' ;
       }
     }
 
     &-score {
+      &:before {
+        content: '\f004';
+      }
 
     }
 
     &-price {
-
+      &:before {
+        content: '\f3d1';
+      }
     }
 
     &-more {
       position: absolute;
       cursor: pointer;
-      bottom: 5px;
+      bottom: 8px;
       right: 15px;
       color: #111111;
     }
