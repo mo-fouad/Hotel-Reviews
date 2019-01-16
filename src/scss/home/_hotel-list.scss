@@ -1,0 +1,66 @@
+.hotels {
+  &-container {
+    padding: 20px 0;
+  }
+
+  &-card {
+    height: 100px;
+    position: relative;
+    margin: 15px;
+    padding-left: 120px;
+    border: 1px solid #000;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+
+    $c: &;
+
+    &:hover {
+      #{$c}-img {
+        transition: all 200ms ease-out;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    &-img {
+      position: absolute;
+      border-top-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      top: 0;
+      left: 0;
+      transition: all 200ms ease-out;
+    }
+
+    &-name {
+      margin: 5px 0;
+      font-size: 22px;
+      font-weight: bold;
+      color: #223225;
+    }
+
+
+    &-review {
+      &:before{
+        content: '\f4ad';
+        font-family:'font-awesome' ;
+      }
+    }
+
+    &-score {
+
+    }
+
+    &-price {
+
+    }
+
+    &-more {
+      position: absolute;
+      cursor: pointer;
+      bottom: 5px;
+      right: 15px;
+      color: #111111;
+    }
+
+  }
+
+}
