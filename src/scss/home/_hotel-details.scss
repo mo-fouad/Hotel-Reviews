@@ -7,19 +7,22 @@
     margin: 0 auto;
     margin-bottom: 15px;
     border: 2px solid #333;
-    box-shadow: 0px 0px  15px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
     position: relative;
+
     &:after {
-      content:'';
-      display:block;
-      position:absolute;
-      left:48%;top:40%;
-      width:40px;height:40px;
-      border-style:solid;
-      border-color:black;
-      border-top-color:transparent;
+      content: '';
+      display: block;
+      position: absolute;
+      left: 48%;
+      top: 40%;
+      width: 40px;
+      height: 40px;
+      border-style: solid;
+      border-color: black;
+      border-top-color: transparent;
       border-width: 4px;
-      border-radius:50%;
+      border-radius: 50%;
       animation: spin .8s linear infinite;
       z-index: -1;
     }
@@ -30,18 +33,56 @@
   }
 
   &-bar {
-    padding: 10px 25px;
+    padding: 10px 0px;
     border-bottom: 1px solid #333;
     margin-bottom: 10px;
-    text-align: center;
     position: relative;
+    height: 130px;
+    width: 100%;
+    overflow: hidden;
 
-    img {
-      margin: 0 10px;
+    .left,.right {
+      position: absolute;
+      font-family: Font Awesome\ 5 Free;
+      height: 100%;
+      background: #fff;
+      padding: 43px 5px;
+      z-index: 10;
       cursor: pointer;
-      transition: box-shadow 200ms ease-out;
-      &:hover{
-        box-shadow: 0px 0px  15px rgba(0,0,0,0.5);
+      &:before{
+        font-size: 32px;
+      }
+    }
+    .left{
+      left: 0;
+      &:before {
+        content: "\f104";
+      }
+    }
+    .right {
+      right: 0;
+      &:before {
+        content: "\f105";
+      }
+    }
+
+    &-long {
+      position: absolute;
+      transition: all 200ms ease-out;
+      left: 0;
+      width: 100%;
+      text-align: center;
+
+      img {
+        cursor: pointer;
+        transition: box-shadow 200ms ease-out;
+
+        &:first-child {
+          margin-left: 35px;
+        }
+        &:hover {
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
       }
     }
   }
@@ -50,10 +91,13 @@
 
 
 @keyframes spin {
-  from {transform:rotate(0deg);}
-  to {transform:rotate(360deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-
 
 
 // Reviews CSS
@@ -65,6 +109,7 @@
     min-height: 61px;
     padding-left: 100px;
     border-bottom: 1px solid #eee;
+
     span {
       position: absolute;
       font-size: 32px;
@@ -75,9 +120,25 @@
       width: 76px;
       border-left: 4px solid #c5c9cd;
     }
+
     p {
       font-size: 18px;
       line-height: 20px;
     }
+  }
+}
+
+.paging {
+  &-container {
+    padding: 20px;
+    text-align: center;
+  }
+  &-btn {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: #eeeeee;
+    border: 1px solid #333;
+    margin: 0 10px;
   }
 }

@@ -53,7 +53,7 @@ header {
   width: 100%;
   padding: 30px;
   text-align: center;
-  background: aliceblue;
+  background: #f1f1f1;
   left: 0;
   top: 0;
   z-index: 100;
@@ -101,20 +101,63 @@ body {
 }
 
 .gallery-bar {
-  padding: 10px 25px;
+  padding: 10px 0px;
   border-bottom: 1px solid #333;
   margin-bottom: 10px;
-  text-align: center;
   position: relative;
+  height: 130px;
+  width: 100%;
+  overflow: hidden;
 }
 
-.gallery-bar img {
-  margin: 0 10px;
+.gallery-bar .left, .gallery-bar .right {
+  position: absolute;
+  font-family: Font Awesome\ 5 Free;
+  height: 100%;
+  background: #fff;
+  padding: 43px 5px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.gallery-bar .left:before, .gallery-bar .right:before {
+  font-size: 32px;
+}
+
+.gallery-bar .left {
+  left: 0;
+}
+
+.gallery-bar .left:before {
+  content: "\f104";
+}
+
+.gallery-bar .right {
+  right: 0;
+}
+
+.gallery-bar .right:before {
+  content: "\f105";
+}
+
+.gallery-bar-long {
+  position: absolute;
+  transition: all 200ms ease-out;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.gallery-bar-long img {
   cursor: pointer;
   transition: box-shadow 200ms ease-out;
 }
 
-.gallery-bar img:hover {
+.gallery-bar-long img:first-child {
+  margin-left: 35px;
+}
+
+.gallery-bar-long img:hover {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
@@ -149,6 +192,20 @@ body {
 .reviews-item p {
   font-size: 18px;
   line-height: 20px;
+}
+
+.paging-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.paging-btn {
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #eeeeee;
+  border: 1px solid #333;
+  margin: 0 10px;
 }
 
 .hotels-container {

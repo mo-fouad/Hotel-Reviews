@@ -72,14 +72,15 @@ class myUI {
 
     static bulidHotelInfo(HotelInfo) {
         document.getElementById('imgGallery').innerHTML="";
-        imgGallery.createImgGallery(HotelInfo.pictures);
+        ImgGallery.createImgGallery(HotelInfo.pictures);
     }
 
     static buildHotelReview (HotelInfo) {
         document.getElementById('reviews').innerHTML="";
-        reviews.createReviews(HotelInfo.reviews);
+        Reviews.createReviews(HotelInfo.reviews);
     }
 
+    //todo : Make prices / night :D
 }
 
 

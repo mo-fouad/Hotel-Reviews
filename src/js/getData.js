@@ -28,7 +28,7 @@ class getData {
                 callback(null, hotelInfo)
             })
             .catch(err => {
-                callback(null, err)
+                callback(err,null)
             })
     }
 }
