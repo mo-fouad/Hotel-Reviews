@@ -1,18 +1,6 @@
-// Hello
+//  rendering all UI functions to the APP
 
-class Hotel {
-    constructor(id, name, totalReviews, totalScore, pricePerNight, photo) {
-        this.id = id;
-        this.name = name;
-        this.totalReviews = totalReviews;
-        this.totalScore = totalScore;
-        this.pricePerNight = pricePerNight;
-        this.photo = photo;
-    }
-}
-
-
-class myUI {
+class appUI {
 
     // Passing json for Hotels and builing the UI for it
     static CheckIfData() {
@@ -30,19 +18,19 @@ class myUI {
         const hotelContainer = document.getElementById('hotels');
 
         hotels.forEach(hotel => {
-            const hoteltag = document.createElement('div');
-            hoteltag.classList.add('hotels-card');
-            hoteltag.classList.add('col');
+            const hotelTag = document.createElement('div');
+            hotelTag.classList.add('hotels-card');
+            hotelTag.classList.add('col');
 
-            hoteltag.innerHTML = `
+            hotelTag.innerHTML = `
                 <h1 class="hotels-card-name">${hotel.name}</h1>
                 <p class="hotels-card-review">${hotel.totalReviews}</p>
                 <p class="hotels-card-score">${hotel.totalScore}<sup>/10</sup></p>
                 <p class="hotels-card-price">${hotel.pricePerNight}<sup>/$$</sup></p>
-                <span class="hotels-card-more" data-id="${hotel.id}" class="viewHotel" onclick="myUI.getHotelID(event)">View Details</span>
+                <span class="hotels-card-more" data-id="${hotel.id}" class="viewHotel" onclick="appUI.getHotelID(event)">View Details</span>
                 <img class="hotels-card-img" src="${hotel.photo}" alt="${hotel.name}">
             `;
-            hotelContainer.append(hoteltag);
+            hotelContainer.append(hotelTag);
         });
     }
 
@@ -87,7 +75,7 @@ class myUI {
 // ** start building the Application
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    myUI.CheckIfData();
+    appUI.CheckIfData();
 });
 
 const hotelLinks = document.querySelectorAll('.viewHotel');

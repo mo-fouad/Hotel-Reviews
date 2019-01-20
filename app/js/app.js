@@ -132,7 +132,7 @@ function () {
         thumsBar.appendChild(goRight); // What happen when you click the lift click
 
         goLeft.addEventListener('click', function () {
-          var total = parseInt(thumbsLongBar.style.left) + x;
+          var total = parseInt(thumbsLongBar.style.left) + variance;
 
           if (total >= 0) {
             moveLift = moveLift - 117;
@@ -155,32 +155,21 @@ function () {
 }();
 "use strict";
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-// Hello
-var Hotel = function Hotel(id, name, totalReviews, totalScore, pricePerNight, photo) {
-  _classCallCheck(this, Hotel);
-
-  this.id = id;
-  this.name = name;
-  this.totalReviews = totalReviews;
-  this.totalScore = totalScore;
-  this.pricePerNight = pricePerNight;
-  this.photo = photo;
-};
-
-var myUI =
+//  rendering all UI functions to the APP
+var appUI =
 /*#__PURE__*/
 function () {
-  function myUI() {
-    _classCallCheck(this, myUI);
+  function appUI() {
+    _classCallCheck(this, appUI);
   }
 
-  _createClass(myUI, null, [{
+  _createClass(appUI, null, [{
     key: "CheckIfData",
     // Passing json for Hotels and builing the UI for it
     value: function CheckIfData() {
@@ -199,11 +188,11 @@ function () {
     value: function buildHotels(hotels) {
       var hotelContainer = document.getElementById('hotels');
       hotels.forEach(function (hotel) {
-        var hoteltag = document.createElement('div');
-        hoteltag.classList.add('hotels-card');
-        hoteltag.classList.add('col');
-        hoteltag.innerHTML = "\n                <h1 class=\"hotels-card-name\">".concat(hotel.name, "</h1>\n                <p class=\"hotels-card-review\">").concat(hotel.totalReviews, "</p>\n                <p class=\"hotels-card-score\">").concat(hotel.totalScore, "<sup>/10</sup></p>\n                <p class=\"hotels-card-price\">").concat(hotel.pricePerNight, "<sup>/$$</sup></p>\n                <span class=\"hotels-card-more\" data-id=\"").concat(hotel.id, "\" class=\"viewHotel\" onclick=\"myUI.getHotelID(event)\">View Details</span>\n                <img class=\"hotels-card-img\" src=\"").concat(hotel.photo, "\" alt=\"").concat(hotel.name, "\">\n            ");
-        hotelContainer.append(hoteltag);
+        var hotelTag = document.createElement('div');
+        hotelTag.classList.add('hotels-card');
+        hotelTag.classList.add('col');
+        hotelTag.innerHTML = "\n                <h1 class=\"hotels-card-name\">".concat(hotel.name, "</h1>\n                <p class=\"hotels-card-review\">").concat(hotel.totalReviews, "</p>\n                <p class=\"hotels-card-score\">").concat(hotel.totalScore, "<sup>/10</sup></p>\n                <p class=\"hotels-card-price\">").concat(hotel.pricePerNight, "<sup>/$$</sup></p>\n                <span class=\"hotels-card-more\" data-id=\"").concat(hotel.id, "\" class=\"viewHotel\" onclick=\"appUI.getHotelID(event)\">View Details</span>\n                <img class=\"hotels-card-img\" src=\"").concat(hotel.photo, "\" alt=\"").concat(hotel.name, "\">\n            ");
+        hotelContainer.append(hotelTag);
       });
     }
   }, {
@@ -249,12 +238,12 @@ function () {
 
   }]);
 
-  return myUI;
+  return appUI;
 }(); // ** start building the Application
 
 
 document.addEventListener('DOMContentLoaded', function (event) {
-  myUI.CheckIfData();
+  appUI.CheckIfData();
 });
 var hotelLinks = document.querySelectorAll('.viewHotel');
 "use strict";

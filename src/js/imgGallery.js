@@ -91,7 +91,7 @@ class ImgGallery {
             // What happen when you click the lift click
             goLeft.addEventListener('click', () => {
 
-                let total = parseInt( thumbsLongBar.style.left ) + x;
+                let total = parseInt( thumbsLongBar.style.left ) + variance;
                 if (  total >= 0) {
                     moveLift = moveLift - 117;
                     thumbsLongBar.style.left = moveLift + "px";

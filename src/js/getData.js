@@ -7,9 +7,7 @@ class getData {
         const hotelsURL = "http://my-json-server.typicode.com/fly365com/code-challenge/hotels";
 
         fetch(hotelsURL)
-            .then(response => {
-                return response.json();
-            })
+            .then(response =>  {return response.json()} )
             .then(hotels => {
                 callback(null, hotels)
             })
